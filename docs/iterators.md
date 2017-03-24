@@ -148,13 +148,14 @@ class Fib implements IterableIterator<number> {
     var current = this.fn1;
     this.fn1 = this.fn2;
     this.fn2 = current + this.fn1;
-    if (this.maxValue && current <= this.maxValue) {
+    if ((this.maxValue && current <= this.maxValue) || !this.maxValue) {
       return {
         done: false,
         value: current
       }
     } return {
-      done: true
+      done: true,
+      value: undefined
     }
 
   }
